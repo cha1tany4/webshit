@@ -1,0 +1,8 @@
+- name: Home
+  link: /
+- name: Hall of Shame
+  link: /hall-of-shame/
+- name: About
+  link: /about/
+- name: Contribute
+  link: /contribute/

@@ -1,0 +1,384 @@
+/* Webshit — Modern Minimal Bold */
+
+/* ============================================
+   Variables
+   --accent:       #d62828  red for decorative & interactive elements
+   --pico-primary: #d62828  overrides Pico link color
+   Contrast notes:
+     #000 on #fff  = 21:1   ✓ AAA
+     #555 on #fff  = 7.5:1  ✓ AAA  (used for muted text)
+     #fff on #d62828 = 4.6:1 ✓ AA  (pill labels — large bold text)
+============================================ */
+:root {
+    --accent: #d62828;
+    --accent-hover: #a81c1c;
+    --max-width: 960px;
+    --post-width: 680px;
+    --pico-primary: #d62828;
+    --pico-primary-hover: #a81c1c;
+    --pico-primary-underline: rgba(214, 40, 40, 0.35);
+    /* article header/footer: slightly darker than Pico default (#fbfbfc)
+       #e6e8eb on Pico text #373c44 = 9.3:1 ✓ AAA */
+    --pico-card-sectioning-background-color: #e6e8eb;
+}
+
+/* ============================================
+   Global: underline all links
+============================================ */
+a {
+    text-decoration: underline;
+}
+
+/* ============================================
+   Skip link
+============================================ */
+.skip-link {
+    position: absolute;
+    top: -50px;
+    left: 0;
+    background: #000;
+    color: #fff;
+    padding: 8px 16px;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 0.875rem;
+    z-index: 9999;
+}
+.skip-link:focus {
+    top: 0;
+}
+
+/* ============================================
+   Global layout
+============================================ */
+body > header,
+body > main,
+body > footer {
+    max-width: 100%;
+    padding-left: 0;
+    padding-right: 0;
+}
+
+body > main {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 0 1.5rem;
+}
+
+/* ============================================
+   Header & Masthead
+   Clean white, massive bold title, red strip
+============================================ */
+.masthead {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 2.5rem 1.5rem 1.5rem;
+}
+
+.site-title {
+    display: block;
+    font-size: clamp(2.75rem, 7vw, 4.5rem);
+    font-weight: 900;
+    letter-spacing: -0.04em;
+    line-height: 1;
+    color: #000;
+    margin: 0;
+}
+
+.site-title a {
+    color: inherit;
+}
+.site-title a:hover {
+    color: var(--accent);
+}
+
+/* #555 on #fff = 7.5:1 ✓ AAA */
+.site-tagline {
+    font-size: 0.72rem;
+    color: #555;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    margin: 0.6rem 0 0;
+}
+
+/* ============================================
+   Navigation
+============================================ */
+.main-nav {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 0 1.5rem;
+}
+
+.main-nav ul {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    list-style: none;
+}
+
+.main-nav a {
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: #000;
+    text-decoration: underline !important;
+}
+
+.main-nav a:hover {
+    color: var(--accent);
+}
+.main-nav a[aria-current="page"] {
+    color: var(--accent);
+}
+
+/* #555 on #fff = 7.5:1 ✓ AAA */
+.theme-btn {
+    background: none;
+    border: none;
+    color: #555;
+    cursor: pointer;
+    padding: 0;
+    font-size: 0.72rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+}
+.theme-btn:hover {
+    color: #000;
+}
+
+/* ============================================
+   Posts list (homepage)
+============================================ */
+.posts-list {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 2rem;
+}
+
+.posts-list-item {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.4rem;
+    padding: 1rem 0;
+}
+
+.posts-list-pills {
+    display: flex;
+    gap: 0.4rem;
+}
+
+.post-pill {
+    flex-shrink: 0;
+    font-size: 0.57rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    padding: 0.1rem 0.1rem;
+    white-space: nowrap;
+}
+
+/* #fff on each bg — contrast verified ✓ AAA (7:1+) */
+.post-pill--category {
+    background: #000;
+    color: #fff;
+    min-width: 7rem;
+    text-align: center;
+}
+
+/* technical:    blue   — #fff on #00578A = 7.7:1  ✓ AAA */
+.post-pill--technical {
+    background: #00578a;
+}
+
+/* ethical:      green  — #fff on #00603F = 7.7:1  ✓ AAA */
+.post-pill--ethical {
+    background: #00603f;
+}
+
+/* psychological: red   — #fff on #A0002A = 8.3:1  ✓ AAA */
+.post-pill--psychological {
+    background: #a0002a;
+}
+
+/* systemic:     yellow — #000 on #FFD300 = 14.6:1 ✓ AAA */
+.post-pill--systemic {
+    background: #ffd300;
+    color: #000;
+}
+
+/* #555 on #fff = 7.5:1 ✓ AAA */
+.post-pill--type {
+    color: #555;
+    border: 1.5px solid #bbb;
+    min-width: 4rem;
+    text-align: center;
+}
+
+.posts-list-title {
+    font-size: 1.35rem;
+    font-weight: 700;
+    color: #000;
+    line-height: 1.25;
+}
+.posts-list-title:hover {
+    color: var(--accent);
+}
+
+/* ============================================
+   Post metadata
+============================================ */
+/* #555 on #fff = 7.5:1 ✓ AAA */
+.post-meta {
+    font-size: 0.78rem;
+    color: #555;
+    margin-bottom: 1rem;
+}
+
+.post-meta a {
+    text-decoration: underline;
+}
+
+/* ============================================
+   Post article — single column
+============================================ */
+article, article header, article footer {
+    border: 0;
+}
+
+.post-article,
+.page-article {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 0 1rem;
+}
+
+.post-article header h1, .page-article header h1 {
+    font-size: clamp(1.9rem, 4.5vw, 2.6rem);
+    font-weight: 900;
+    letter-spacing: -0.025em;
+    line-height: 1.15;
+    margin-bottom: 0.5rem;
+}
+
+.post-tags {
+    font-size: 0.875rem;
+}
+
+.post-tags a {
+    margin-right: 0.25rem;
+    color: var(--accent);
+    text-decoration: underline;
+}
+.post-tags a:hover {
+    color: var(--accent-hover);
+}
+
+/* ============================================
+   Footer
+============================================ */
+.site-footer {
+    margin-top: 5rem;
+    padding: 2rem 1.5rem;
+    text-align: center;
+}
+
+/* #555 on #fff = 7.5:1 ✓ AAA */
+.site-footer p {
+    margin-bottom: 0.4rem;
+    font-size: 0.8rem;
+    color: #555;
+}
+
+/* #333 on #fff = 12.6:1 ✓ AAA */
+.site-footer a {
+    color: #333;
+}
+.site-footer a:hover {
+    color: #000;
+}
+
+/* ============================================
+   Dark mode
+   Pico dark background ≈ #181c25
+   Verified contrast ratios below each rule.
+============================================ */
+[data-theme="dark"] {
+    --pico-primary: #ff6b6b;
+    --pico-primary-hover: #ff8e8e;
+    --pico-primary-underline: rgba(255, 107, 107, 0.4);
+    /* article header/footer: slightly darker than Pico default (#1a1e28)
+       #13161f on Pico text #c2c7d0 = 10.7:1 ✓ AAA */
+    --pico-card-sectioning-background-color: #13161f;
+}
+
+/* #fff on #181c25 = 16.9:1 ✓ AAA */
+[data-theme="dark"] .site-title {
+    color: #fff;
+}
+[data-theme="dark"] .site-title a:hover {
+    color: #ff6b6b;
+}
+
+/* #aaa on #181c25 = 8.9:1 ✓ AAA */
+[data-theme="dark"] .site-tagline {
+    color: #aaa;
+}
+
+[data-theme="dark"] .main-nav a {
+    color: #fff;
+}
+[data-theme="dark"] .main-nav a:hover,
+[data-theme="dark"] .main-nav a[aria-current="page"] {
+    color: #ff6b6b;
+}
+
+[data-theme="dark"] .theme-btn {
+    color: #aaa;
+}
+[data-theme="dark"] .theme-btn:hover {
+    color: #fff;
+}
+
+/* #aaa on #181c25 = 8.9:1 ✓ AAA */
+[data-theme="dark"] .post-pill--type {
+    color: #aaa;
+    border-color: #444;
+}
+
+[data-theme="dark"] .posts-list-item {
+    border-color: #252525;
+}
+
+[data-theme="dark"] .posts-list-title {
+    color: #fff;
+}
+[data-theme="dark"] .posts-list-title:hover {
+    color: #ff6b6b;
+}
+
+[data-theme="dark"] .post-meta {
+    color: #aaa;
+}
+
+[data-theme="dark"] .post-article header h1 {
+    color: #fff;
+}
+[data-theme="dark"] .post-tags a {
+    color: #ff6b6b;
+}
+[data-theme="dark"] .post-tags a:hover {
+    color: #ff8e8e;
+}
+
+[data-theme="dark"] .site-footer p {
+    color: #888;
+}
+[data-theme="dark"] .site-footer a {
+    color: #aaa;
+}
+[data-theme="dark"] .site-footer a:hover {
+    color: #fff;
+}

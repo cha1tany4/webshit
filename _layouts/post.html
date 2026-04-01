@@ -1,0 +1,24 @@
+---
+layout: default
+---
+
+<article class="post-article">
+    <header>
+        <h1>{{ page.title }}</h1>
+        {% assign post = page %}{% include post-meta.html %}
+        <div class="posts-list-pills">
+          <span class="post-pill post-pill--category post-pill--{{ page.category }}">{{ page.category }}</span>
+          <span class="post-pill post-pill--type">{{ page.type }}</span>
+        </div>
+    </header>
+
+    {{ content }}
+
+    {% if page.tags.size > 0 %}
+    <footer class="post-tags">
+        <strong>Tags:</strong>
+        {% for tag in page.tags %} #{{ tag }}{% unless forloop.last %}, {%
+        endunless %} {% endfor %}
+    </footer>
+    {% endif %}
+</article>

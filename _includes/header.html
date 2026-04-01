@@ -1,0 +1,17 @@
+<header class="site-header">
+    <div class="masthead">
+        {% if page.url == "/" %}
+        <h1 class="site-title"><a href="/">{{ site.title }}</a></h1>
+        {% else %}
+        <p class="site-title"><a href="/">{{ site.title }}</a></p>
+        {% endif %}
+        <p class="site-tagline">{{ site.description }}</p>
+    </div>
+    <nav class="main-nav" aria-label="Main navigation">
+        <ul>
+            {% for item in site.data.navigation %}
+            <li><a href="{{ item.link }}"{% if page.url == item.link %} aria-current="page"{% endif %}>{{ item.name }}</a></li>
+            {% endfor %}
+        </ul>
+    </nav>
+</header>

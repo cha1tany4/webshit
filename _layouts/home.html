@@ -1,0 +1,21 @@
+---
+layout: default
+---
+
+{% if site.posts.size > 0 %}
+<ul class="posts-list">
+  {% for post in site.posts %}
+  <li class="posts-list-item">
+    <div class="posts-list-pills">
+      <span class="post-pill post-pill--category post-pill--{{ post.category }}">{{ post.category }}</span>
+      <span class="post-pill post-pill--type">{{ post.type }}</span>
+    </div>
+    <a class="posts-list-title" href="{{ post.url }}">{{ post.title }}</a>
+  </li>
+  {% endfor %}
+</ul>
+{% else %}
+<p>No posts yet. <a href="/contribute/">Contribute the first one.</a></p>
+{% endif %}
+
+{{ content }}
