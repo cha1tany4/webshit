@@ -32,7 +32,7 @@ Webshit practices what it preaches:
 
 ## License
 
-Content is published under [Creative Commons CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/). Share and adapt freely, with attribution.
+Content is published under [Creative Commons CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/). Share and adapt freely, with attribution, for non-commercial purposes only.
 
 ## Who Writes Here
 
